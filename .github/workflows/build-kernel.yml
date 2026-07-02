@@ -66,7 +66,7 @@ jobs:
           echo "KSU_LOG: 开始下载并应用 RKSU 官方 4.14 patch"
           cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
           wget https://raw.githubusercontent.com/rksuorg/kernel_patches/refs/heads/master/manual_hook/kernel-4.19_5.4.patch -O ksu-4.19.patch || { echo "下载 patch 失败"; exit 1; }
-          patch -p1 < ksu-4.19.patch || { echo "patch 应用失败"; cat ksu-4.14.patch; exit 1; }
+          patch -p1 < ksu-4.19.patch || { echo "patch 应用失败"; cat ksu-4.19.patch; exit 1; }
 
       - name: KernelSU - 植入 KSU 核心
         if: inputs.enable_kernelsu == true
